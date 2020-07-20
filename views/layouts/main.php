@@ -7,8 +7,8 @@ use app\models\Manuals;
 use app\widgets\Alert;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
+use yii\bootstrap4\Nav;
+use yii\bootstrap4\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
@@ -35,11 +35,12 @@ AppAsset::register($this);
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar navbar-dark bg-primary',
         ],
+
     ]);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar-nav navbar-right nav justify-content-end'],
         'items' => [
             ['label' => 'На главную',
                 'items' => [
@@ -72,13 +73,48 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
+<!--    <div class="container">-->
+<!--        --><?//= Breadcrumbs::widget([
+//            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+//        ]) ?>
+<!--        --><?//= Alert::widget() ?>
+<!--        --><?//= $content ?>
+<!--    </div>-->
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+    <nav id="navbar-example3" class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <nav class="nav nav-pills flex-column">
+            <a class="nav-link" href="#item-1">Item 1</a>
+            <nav class="nav nav-pills flex-column">
+                <a class="nav-link ml-3 my-1" href="#item-1-1">Item 1-1</a>
+                <a class="nav-link ml-3 my-1" href="#item-1-2">Item 1-2</a>
+            </nav>
+            <a class="nav-link" href="#item-2">Item 2</a>
+            <a class="nav-link" href="#item-3">Item 3</a>
+            <nav class="nav nav-pills flex-column">
+                <a class="nav-link ml-3 my-1" href="#item-3-1">Item 3-1</a>
+                <a class="nav-link ml-3 my-1" href="#item-3-2">Item 3-2</a>
+            </nav>
+        </nav>
+    </nav>
+
+    <div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
+        <h4 id="item-1">Item 1</h4>
+        <p></p>
+        <h5 id="item-1-1">Item 1-1</h5>
+        <p>...</p>
+        <h5 id="item-1-2">Item 1-2</h5>
+        <p>...</p>
+        <h4 id="item-2">Item 2</h4>
+        <p>...</p>
+        <h4 id="item-3">Item 3</h4>
+        <p>...</p>
+        <h5 id="item-3-1">Item 3-1</h5>
+        <p>...</p>
+        <h5 id="item-3-2">Item 3-2</h5>
+        <p>...</p>
     </div>
+</div>
 </div>
 
 <footer class="footer">
