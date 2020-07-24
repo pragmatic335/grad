@@ -30,17 +30,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <div class="wrap">
-
-    <nav class="navbar  navbar-dark bg-dark rounded-0 navbar-expand-lg justify-content-end">
-        <a class="navbar-brand" href="#">Документация ПК ГРАД</a>
-        <nav class="navbar-nav">
-            <a class="nav-link active" href="#">Active</a>
-            <a class="nav-link" href="#">Link</a>
-            <a class="nav-link" href="#">Link</a>
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </nav>
-    </nav>
-
+    <?= Header::head() ?>
 
     <div class="container">
         <?= Breadcrumbs::widget([

@@ -7,36 +7,39 @@ class Header
 {
     public static function head()
     {
+        $categories = Manuals::find()->all();
+        $string = '';
+        foreach($categories as $manual):
+            $string .= ' <a class="dropdown-item" href="#">'.$manual->getAttribute('name').'</a> ';
+        endforeach;
+
         $a = <<<HTML
-                <nav class="navbar navbar-dark bg-dark rounded-0">
-                                     <a class="navbar-brand" href="#">Navbar</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                      <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Dropdown link
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
+                <nav class="navbar navbar-light bg-light rounded-0 shadow-sm">
+            <div class="container justify-content-start navbar-expand-lg">
+                <a class="navbar-brand mr-auto" href="#">Документация ПК ГРАД</a>
+                <nav class="navbar navbar-light bg-light">
+                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                   <span class="navbar-toggler-icon"></span>
+                 </button>
                 </nav>
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="#">На главную</a>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Руководства
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            $string
+                        </div>
+                    </div>
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+             
+            </div>
+
+        </nav>
 HTML;
         return $a;
     }
