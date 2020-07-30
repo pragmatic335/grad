@@ -113,3 +113,23 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+/*Мои селекторы*/
+.mainer {
+    display:flex;
+    min-height: 86vh;
+
+
+
+}
+
+.sidebar {
+ display: grid;
+}
+
+.rotated {
+    transform: rotate(180deg);
+    transition-duration: 0.5s;
+}
+
+

@@ -6,6 +6,7 @@
 use app\models\Manuals;
 use app\widgets\Alert;
 use yii\bootstrap\ActiveForm;
+use yii\bootstrap\Collapse;
 use yii\helpers\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
@@ -18,70 +19,42 @@ AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Yii::$app->language ?>" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+<!--    <script>  --><?//= $this->render('scripts.js'); ?><!-- </script>-->
     <?php $this->head() ?>
 </head>
 <body>
 <?php $this->beginBody() ?>
-<div class="wrap">
-    <?= Header::head() ?>
+<div class="wrap ">
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+
+    <?= /* Header нашего приложения */
+        $this->render('_header');
+    ?>
+    <div class="mainer mt-1 ">
+        <?= /* Sidebar нашего приложения */
+            $this->render('_sidebar');
+        ?>
+
+        <div class="container">
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+            <?= Alert::widget() ?>
+            <?= $content ?>
+
+        </div>
 
     </div>
 </div>
-<!--    --><?php
-//    NavBar::begin([
-//        'brandLabel' => Yii::$app->name,
-//        'brandUrl' => Yii::$app->homeUrl,
-//        'options' => [
-//            'class' => 'navbar-dark bg-primary',
-//        ],
-//
-//    ]);?>
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!--    //'navbar-nav navbar-right nav justify-content-end flex-column-->-->
-<!-- --><?php //  echo Nav::widget([
-//        'options' => ['class' => 'navbar-nav navbar-right nav justify-content-end '],
-//        'items' => [
-//            ['label' => 'На главную',
-//             'url' => ['/site/manual'],
-//            ],
-//             Manuals::getLabels(),
-//
-////            Yii::$app->user->isGuest ? (
-////                ['label' => 'Login', 'url' => ['/site/login']]
-////            ) : (
-////                '<li>'
-////                . Html::beginForm(['/site/logout'], 'post')
-////                . Html::submitButton(
-////                    'Logout (' . Yii::$app->user->identity->username . ')',
-////                    ['class' => 'btn btn-link logout']
-////                )
-////                . Html::endForm()
-////                . '</li>'
-////            )
-//        ],
-//    ]);
-//    ?>
-<!--    --><?php //NavBar::end(); ?>
+
 
 
 
@@ -96,6 +69,8 @@ AppAsset::register($this);
 </footer>
 
 <?php $this->endBody() ?>
+
+
 </body>
 </html>
 <?php $this->endPage() ?>
