@@ -2,16 +2,16 @@
 
 namespace app\controllers;
 
-use app\models\Manuals;
+use app\components\behaviors\WelcomBehavor;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\ContactForm;
 
-class SiteController extends Controller
+
+class BaseController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -21,13 +21,18 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => [],
                 'rules' => [
                     [
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
+                    [
+                        'actions' =>['index'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ]
                 ],
             ],
             'verbs' => [
@@ -36,8 +41,12 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
+
+
+
         ];
     }
+
 
     /**
      * {@inheritdoc}
@@ -117,19 +126,5 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
 
-    public function actionManuals() {
-        $a = Manuals::find()->all();
-        $c = new Manuals;
-        return $this->render('manuals', compact('a', 'c'));
-    }
 }

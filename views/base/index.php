@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-use app\models\Manuals;
+
 
 $this->title = 'My Yii Application';
 
@@ -13,10 +13,15 @@ $this->title = 'My Yii Application';
 //    echo "<br>";
 //}
 
-for($i=0;$i<100;$i++) {
+for($i=0;$i<0;$i++) {
     echo 'ПРОСсто для примера что и как тут будет высвечиваться dfas dfa dsf sad sfsad ddfad ads fsa dsf sad ddfad adsfs ads fsad ddf ad ad sfs adsfsad ddfad ads fsads fsad ddfad ads fsad sfsad ddfad adsfsad';
     echo "<br>";
 }
+
+echo 'Hello';
+
+
+
 
 
 

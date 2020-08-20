@@ -12,6 +12,9 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'language' => 'ru',
+
+    'defaultRoute' => 'base/index',
+
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -21,11 +24,11 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\Username',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'base/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -52,13 +55,17 @@ $config = [
             ],
         ],
 
-    ],
-    'modules' => [
-        'admin' => [
-            'class' => 'app\modules\admin\Module'
-        ]
+        'session' => [
+          'class' => 'yii\web\DbSession',
+
+          'sessionTable' => 'session',
+        ],
+
 
     ],
+
+
+
 
     'params' => $params,
 ];
