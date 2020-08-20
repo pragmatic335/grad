@@ -34,11 +34,12 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <div class="wrap ">
 
-
     <?= /* Header нашего приложения */
         $this->render('_header');
     ?>
-    <div class="mainer mt-1 ">
+
+    <div class="mainer mt-1 d-flex">
+
         <?= /* Sidebar нашего приложения */
             $this->render('_sidebar');
         ?>

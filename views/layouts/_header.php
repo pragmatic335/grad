@@ -38,12 +38,12 @@
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-    <div class="container">
-        <div>
-        <svg width="1.5em" id="toggler" height="1.5em" viewBox="0 0 16 16" class="bi bi-list mb-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:#3D3D3D;">
+    <div class="container ">
+        <div class="align-items-end d-flex">
+        <svg width="1.7em" id="toggler" height="1.7em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="color:#3D3D3D;">
               <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
         </svg>
-        <a class="navbar-brand ml-3" href="#">Личный прием</a>
+        <a class="navbar-brand ml-3 pt-0 pb-0 " href="#">Личный прием</a>
         </div>
 
         <div class="navbar-nav">
