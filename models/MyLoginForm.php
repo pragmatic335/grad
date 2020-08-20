@@ -13,6 +13,8 @@ class MyLoginForm extends Model
     public $password;
     public $role;
 
+
+
     public function rules()
     {
         return [
@@ -37,10 +39,13 @@ class MyLoginForm extends Model
 
     }
 
+    /** @return  bool*/
     public function login() {
        if($this->validate()) {
-           return Yii::$app->user->login($this->getUser(), 20);
+           return Yii::$app->user->login(Username::findByUsername($this->username), 20);
        }
+
+       return false;
     }
 
 

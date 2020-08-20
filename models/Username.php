@@ -23,7 +23,7 @@ class Username extends ActiveRecord implements IdentityInterface
     //ищем пользователя в базе по имени
     public static function findByUsername($username)
     {
-        return Username::findOne(['username' => $username]);
+        return Username::findOne(['name' => $username]);
     }
 
 
